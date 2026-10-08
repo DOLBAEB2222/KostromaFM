@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e14">
+<title>Радио Кострома ФМ — Live</title>
+<meta name="description" content="Прямой эфир Радио Кострома ФМ. Слушай онлайн бесплатно.">
+<link rel="preconnect" href="https://s0.radioheart.ru">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="glow" id="glow"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot" id="statusDot"></span>
+    <span class="brand-name">КОСТРОМА <em>ФМ</em></span>
+  </div>
+  <div class="topbar-right">
+    <span class="chip" id="vizMode">визуализатор: —</span>
+    <span class="chip" id="listenersChip">— слушателей</span>
+    <span class="chip live">LIVE</span>
+  </div>
+</header>
+
+<main class="stage">
+
+  <section class="cover">
+    <canvas id="viz" width="600" height="600"></canvas>
+    <div class="cover-inner">
+      <div class="logo-mark">К</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="meta">
+      <div class="meta-label">СЕЙЧАС В ЭФИРЕ</div>
+      <div class="track" id="trackTitle">Радио Кострома ФМ</div>
+      <div class="artist" id="trackArtist">прямой эфир · 24/7</div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-skip" id="muteBtn" title="Звук (M)" aria-label="Звук">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      </button>
+
+      <button class="btn-play" id="playBtn" aria-label="Play">
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        <span class="spinner"></span>
+      </button>
+
+      <button class="btn-skip" id="volBtn" title="Громкость" aria-label="Громкость">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h2"/><path d="M9 8v8"/><path d="M13 5v14"/><path d="M17 9v6"/><path d="M21 12h-1"/></svg>
+      </button>
+    </div>
+
+    <div class="volume">
+      <span class="vol-icon">🔈</span>
+      <input type="range" id="volume" min="0" max="100" value="80">
+      <span class="vol-icon">🔊</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-label">БИТРЕЙТ</span>
+        <span class="stat-value" id="bitrate">— kbps</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">СТАТУС</span>
+        <span class="stat-value" id="statusText">остановлено</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">ВРЕМЯ</span>
+        <span class="stat-value" id="clock">--:--:--</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span id="streamLabel">s0.radioheart.ru:8000/RH85296</span>
+  <span id="bufferState">—</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
